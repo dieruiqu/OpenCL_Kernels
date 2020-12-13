@@ -1,0 +1,8 @@
+{"name":"Info","rows":[
+{"name":"Project Name","data":["SGEMM_Kernel_3"],"classes":["info-table"]},
+{"name":"Target Family, Device, Board","data":["Cyclone V, 5CGXFC9D6F27C7, c5p:c5p"]},
+{"name":"AOC Version","data":["17.1.0 Build 590"]},
+{"name":"Quartus Version","data":["17.1.0 Build 590"]},
+{"name":"Command","data":["aoc SGEMM_Kernel_3.cl -o SGEMM_Kernel_3.aocx -board=c5p -report -v -fp-relaxed -no-interleaving=default"]},
+{"name":"Reports Generated At", "data":["Tue Jul 14 09:14:01 2020"]}
+]}

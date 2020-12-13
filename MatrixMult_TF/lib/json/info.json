@@ -1,0 +1,8 @@
+{"name":"Info","rows":[
+{"name":"Project Name","data":["matrix_mult"],"classes":["info-table"]},
+{"name":"Target Family, Device, Board","data":["Cyclone V, 5CGXFC9D6F27C7, c5p:c5p"]},
+{"name":"AOC Version","data":["17.1.0 Build 590"]},
+{"name":"Quartus Version","data":["17.1.0 Build 590"]},
+{"name":"Command","data":["aoc -fp-relaxed device/matrix_mult.cl -o bin/matrix_mult.aocx -board=c5p -report -v"]},
+{"name":"Reports Generated At", "data":["Sun Jan 26 00:55:35 2020"]}
+]}

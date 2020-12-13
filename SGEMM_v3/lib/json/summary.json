@@ -1,0 +1,404 @@
+{
+  "performanceSummary":
+  {
+    "name":"Kernel Summary"
+    , "columns":
+    ["Kernel Name", "Kernel Type", "Autorun", "Workgroup Size", "# Compute Units"]
+    , "children":
+    [
+      {
+        "name":"MatrixMult"
+        , "data":
+        [
+          "NDRange"
+          , "No"
+          , [16, 16, 1]
+          , 1
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: NDRange"
+          }
+          , {
+            "type":"text"
+            , "text":"Vectorization: The kernel was vectorized for 8 SIMD work-items along the lowest dimension."
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (16, 16, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 256"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":95
+            }
+          ]
+        ]
+      }
+    ]
+  }
+  , "estimatedResources":
+  {
+    "name":"Estimated Resource Usage"
+    , "columns":
+    ["Kernel Name", "ALUTs ", "FFs  ", "RAMs ", "DSPs "]
+    , "children":
+    [
+      {
+        "name":"MatrixMult"
+        , "data":
+        [131973, 124464, 708, 72]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":95
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Global Interconnect"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [885, 5309, 10, 0]
+      }
+      , {
+        "name":"Board Interface"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [24256, 20822, 143, 0]
+      }
+      , {
+        "name":"Total"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [157114, 150595, 861, 72]
+        , "data_percent":
+        [69.1766, 33.1532, 70.5738, 21.0526]
+      }
+      , {
+        "name":"Available"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [227120, 454240, 1220, 342]
+      }
+    ]
+  }
+  , "compileWarnings":
+  {
+    "name":"Compile Warnings"
+    , "children":
+    [
+      {
+        "name":"Load uses a Semi-streaming LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 32768 bit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":121
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced non-aligned cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":135
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":142
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced non-aligned cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":145
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":186
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Semi-streaming LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 32768 bit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+              , "line":207
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}

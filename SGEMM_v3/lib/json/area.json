@@ -1,0 +1,2286 @@
+{
+  "columns":
+  ["", "ALUTs", "FFs", "RAMs", "DSPs", "Details"]
+  , "debug_enabled":"true"
+  , "type":"module"
+  , "total_percent":
+  [94.7152, 69.1766, 33.1532, 70.5738, 21.0526]
+  , "total":
+  [157114, 150595, 861, 72]
+  , "name":"Kernel System"
+  , "max_resources":
+  [227120, 454240, 1220, 342]
+  , "children":
+  [
+    {
+      "name":"Board interface"
+      , "type":"resource"
+      , "data":
+      [24256, 20822, 143, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Platform interface logic."
+        }
+      ]
+    }
+    , {
+      "name":"Global interconnect"
+      , "type":"resource"
+      , "data":
+      [885, 5309, 10, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Global interconnect for 13 global loads and 2 global stores. Reduce number of global loads and stores to simplify global interconnect."
+        }
+      ]
+    }
+    , {
+      "name":"MatrixMult"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [79.0668, 58.1072, 27.4005, 58.0328, 21.0526]
+      , "total_kernel_resources":
+      [131973, 124464, 708, 72]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"text"
+          , "text":"Achieved kernel vectorization: 8"
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1866, 1660, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"SGEMM_Kernel_3.cl:98 (A_local)"
+          , "type":"resource"
+          , "data":
+          [0, 0, 52, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                , "line":98
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Local memory":"Good but replicated"
+              , "Requested size":"1024 bytes"
+              , "Implemented size":"63488 bytes"
+              , "Number of banks":"1"
+              , "Bank width":"256 bits"
+              , "Bank depth":"32 words"
+              , "Total replication":"62"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 1024 bytes, implemented size 63488 bytes, replicated 62 times total, stall-free, 2 reads and 1 write. "
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 31 times to efficiently support multiple simultaneous workgroups. This replication resulted in 3.71 times increase in actual block RAM usage. Reducing the number of barriers or increasing max_work_group_size may help reduce this replication factor."
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 2 times to efficiently support multiple accesses. To reduce this replication factor, reduce number of read and write accesses."
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"SGEMM_Kernel_3.cl:99 (B_local)"
+          , "type":"resource"
+          , "data":
+          [132, 1024, 28, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                , "line":99
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Local memory":"Potentially inefficient configuration"
+              , "Requested size":"1024 bytes"
+              , "Implemented size":"31744 bytes"
+              , "Number of banks":"4 (banked on lowest dimension)"
+              , "Bank width":"32 bits"
+              , "Bank depth":"64 words"
+              , "Total replication":"31"
+              , "Clock":"Running memory at 2x clock to support more concurrent ports"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 1024 bytes, implemented size 31744 bytes, replicated 31 times total, <b>stallable</b>, 8 reads and 8 writes. "
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Reduce the number of write accesses or fix banking to make this memory system stall-free. Banking may be improved by using compile-time known indexing on lowest array dimension."
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 31 times to efficiently support multiple simultaneous workgroups. This replication resulted in 3.50 times increase in actual block RAM usage. Reducing the number of barriers or increasing max_work_group_size may help reduce this replication factor."
+                }
+                , {
+                  "type":"text"
+                  , "text":"Banked on lowest dimension into 4 separate banks."
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"MatrixMult.B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"SGEMM_Kernel_3.cl:110"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":110
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:113"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":113
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [66, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:120"
+                  , "type":"resource"
+                  , "data":
+                  [11, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":120
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:121"
+                  , "type":"resource"
+                  , "data":
+                  [320, 395, 13, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":121
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [294, 395, 13, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Semi-streaming LSU.  Load with a private 32768 bit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [26, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:126"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":126
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:132"
+                  , "type":"resource"
+                  , "data":
+                  [330, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":132
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [264, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:145"
+                  , "type":"resource"
+                  , "data":
+                  [99, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":145
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"MatrixMult.B1"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"SGEMM_Kernel_3.cl:144"
+                  , "type":"resource"
+                  , "data":
+                  [22, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":144
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 2, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:157"
+                  , "type":"resource"
+                  , "data":
+                  [23, 3, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":157
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 2, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:160"
+                  , "type":"resource"
+                  , "data":
+                  [1, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":160
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"MatrixMult.B2"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"SGEMM_Kernel_3.cl:132"
+                  , "type":"resource"
+                  , "data":
+                  [264, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":132
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [264, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:133"
+                  , "type":"resource"
+                  , "data":
+                  [11, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":133
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:134"
+                  , "type":"resource"
+                  , "data":
+                  [89, 9, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":134
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":15
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [88, 8, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:135"
+                  , "type":"resource"
+                  , "data":
+                  [16616.3, 21788, 215, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":135
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":9
+                      , "data":
+                      [16089, 21780, 215, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned cached LSU.  Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced cached LSU.  Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [516, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11.3333, 8, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on SGEMM_Kernel_3.cl:98."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:138"
+                  , "type":"resource"
+                  , "data":
+                  [11.3333, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":138
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11.3333, 8, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on SGEMM_Kernel_3.cl:98."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:142"
+                  , "type":"resource"
+                  , "data":
+                  [12375.3, 17204, 172, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":142
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [12056, 17196, 172, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced cached LSU.  Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [308, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11.3333, 8, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on SGEMM_Kernel_3.cl:98."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:144"
+                  , "type":"resource"
+                  , "data":
+                  [22, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":144
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:145"
+                  , "type":"resource"
+                  , "data":
+                  [4722, 6320, 51, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":145
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [4033, 4584, 43, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned cached LSU.  Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [656, 1736, 8, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stallable write to memory declared on SGEMM_Kernel_3.cl:99."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:148"
+                  , "type":"resource"
+                  , "data":
+                  [1, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":148
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:173"
+                  , "type":"resource"
+                  , "data":
+                  [176, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":173
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [88, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [88, 8, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"MatrixMult.B3"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [708, 599, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [708, 599, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [305, 103, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [2225, 1953, 0, 8]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Multiply"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [2192, 1920, 0, 8]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [32, 32, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:126"
+                  , "type":"resource"
+                  , "data":
+                  [101, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":126
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [66, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:158"
+                  , "type":"resource"
+                  , "data":
+                  [173, 132.5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":158
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [69, 132.5, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on SGEMM_Kernel_3.cl:98."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [104, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:161"
+                  , "type":"resource"
+                  , "data":
+                  [173, 132.5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":161
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [69, 132.5, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on SGEMM_Kernel_3.cl:98."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [104, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"MatrixMult.B4"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [2440, 2448, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [2440, 2448, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [27, 114, 7, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"SGEMM_Kernel_3.cl:115"
+                  , "type":"resource"
+                  , "data":
+                  [66.2857, 36.5714, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":115
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [66.2857, 36.5714, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:144"
+                  , "type":"resource"
+                  , "data":
+                  [11, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":144
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:158"
+                  , "type":"resource"
+                  , "data":
+                  [66.2857, 36.5714, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":158
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [66.2857, 36.5714, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:160"
+                  , "type":"resource"
+                  , "data":
+                  [0.5, 0.5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":160
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [0.5, 0.5, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:161"
+                  , "type":"resource"
+                  , "data":
+                  [66.2857, 36.5714, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":161
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [66.2857, 36.5714, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:165"
+                  , "type":"resource"
+                  , "data":
+                  [44, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":165
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:167"
+                  , "type":"resource"
+                  , "data":
+                  [22, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":167
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:168"
+                  , "type":"resource"
+                  , "data":
+                  [11375.3, 9049.07, 16, 8]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":168
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [7992, 5744, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Multiply"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [2192, 1920, 0, 8]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":9
+                      , "data":
+                      [1125, 1348.5, 16, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on SGEMM_Kernel_3.cl:98."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stallable read from memory declared on SGEMM_Kernel_3.cl:99."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [66.2857, 36.5714, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:170"
+                  , "type":"resource"
+                  , "data":
+                  [11.5, 1.5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":170
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [0.5, 0.5, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:172"
+                  , "type":"resource"
+                  , "data":
+                  [79.2857, 57.0714, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":172
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [13, 20.5, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on SGEMM_Kernel_3.cl:98."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [66.2857, 36.5714, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:173"
+                  , "type":"resource"
+                  , "data":
+                  [1010.29, 94.5714, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":173
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [8, 8, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Compare"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [728, 50, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [274.286, 36.5714, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:174"
+                  , "type":"resource"
+                  , "data":
+                  [66.2857, 36.5714, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":174
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [66.2857, 36.5714, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"MatrixMult.B5"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [5027, 6376, 18, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [5027, 6376, 18, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [213, 215, 8, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [11129, 8507, 0, 8]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":9
+                      , "data":
+                      [4, 4, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [7992, 5744, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Multiply"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [2192, 1920, 0, 8]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":6
+                      , "data":
+                      [90, 5, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":25
+                      , "data":
+                      [800, 800, 0, 0]
+                    }
+                    , {
+                      "name":"Work-group limiter exit"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [17, 33, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:121"
+                  , "type":"resource"
+                  , "data":
+                  [42.6667, 42.6667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":121
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [42.6667, 42.6667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:185"
+                  , "type":"resource"
+                  , "data":
+                  [11, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":185
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:186"
+                  , "type":"resource"
+                  , "data":
+                  [3448.2, 4744.87, 43, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":186
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3105, 4523, 43, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced cached LSU.  Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":40
+                      , "data":
+                      [343.2, 221.867, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:198 > SGEMM_Kernel_3.cl:24"
+                  , "type":"resource"
+                  , "data":
+                  [728, 50, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":198
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":24
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Compare"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [728, 50, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:198 > SGEMM_Kernel_3.cl:25"
+                  , "type":"resource"
+                  , "data":
+                  [551.2, 221.867, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":198
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":25
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":48
+                      , "data":
+                      [551.2, 221.867, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:199 > SGEMM_Kernel_3.cl:67 > \nSGEMM_Kernel_3.cl:48"
+                  , "type":"resource"
+                  , "data":
+                  [88, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":199
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":67
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":48
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [88, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:199 > SGEMM_Kernel_3.cl:67 > \nSGEMM_Kernel_3.cl:52 > SGEMM_Kernel_3.cl:34"
+                  , "type":"resource"
+                  , "data":
+                  [6922.67, 3469.33, 0, 4]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":199
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":67
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":52
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":34
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'expf' Function Call"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [6490.67, 3205.33, 0, 4]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [88, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [88, 8, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [256, 256, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:199 > SGEMM_Kernel_3.cl:67 > \nSGEMM_Kernel_3.cl:53"
+                  , "type":"resource"
+                  , "data":
+                  [24096, 20008, 40, 28]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":199
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":67
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":53
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [7992, 5744, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Divide"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [8112, 8520, 40, 28]
+                    }
+                    , {
+                      "name":"Floating-point Subtract"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [7992, 5744, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:199 > SGEMM_Kernel_3.cl:68"
+                  , "type":"resource"
+                  , "data":
+                  [8207.2, 5837.87, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":199
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":68
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [7992, 5744, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":32
+                      , "data":
+                      [215.2, 93.8667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:200 > SGEMM_Kernel_3.cl:52 > \nSGEMM_Kernel_3.cl:34"
+                  , "type":"resource"
+                  , "data":
+                  [6490.67, 3205.33, 0, 4]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":200
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":52
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":34
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'expf' Function Call"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [6490.67, 3205.33, 0, 4]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:200 > SGEMM_Kernel_3.cl:53"
+                  , "type":"resource"
+                  , "data":
+                  [145.867, 93.8667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":200
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":53
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [145.867, 93.8667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:201 > SGEMM_Kernel_3.cl:34"
+                  , "type":"resource"
+                  , "data":
+                  [6584.53, 3299.2, 0, 4]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":201
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":34
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'expf' Function Call"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [6490.67, 3205.33, 0, 4]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [93.8667, 93.8667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:207"
+                  , "type":"resource"
+                  , "data":
+                  [1582, 2695, 29, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":207
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [999, 718, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [294, 395, 13, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Semi-streaming LSU.  Load with a private 32768 bit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [289, 1582, 16, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"SGEMM_Kernel_3.cl:210"
+                  , "type":"resource"
+                  , "data":
+                  [476, 2436, 16, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                        , "line":210
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [65, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [345, 2436, 16, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

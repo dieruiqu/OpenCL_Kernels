@@ -1,0 +1,167 @@
+{
+  "columns":
+  ["", "Pipelined", "II", "Bottleneck", "Details"]
+  , "children":
+  [
+    {
+      "name":"Kernel: matrixMult_16_2_act"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+            , "line":200
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"ND-Range"
+        }
+        , {
+          "type":"text"
+          , "text":"ND-Range"
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"matrixMult_16_2_act.B3"
+          , "data":
+          ["No", "n/a", "n/a"]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":226
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":226
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":249
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":257
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"brief"
+              , "text":"Thread capacity = 1536"
+            }
+            , {
+              "type":"text"
+              , "text":"Thread capacity = 1536"
+            }
+          ]
+          , "children":
+          [
+            {
+              "name":"Fully unrolled loop"
+              , "data":
+              ["n/a", "n/a", "n/a"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":249
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+              ]
+              , "children":
+              [
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrixMult_16_2_act.B6"
+          , "data":
+          ["No", "n/a", "n/a"]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":303
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":303
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"brief"
+              , "text":"Thread capacity = 53"
+            }
+            , {
+              "type":"text"
+              , "text":"Thread capacity = 53"
+            }
+          ]
+          , "children":
+          [
+            {
+              "name":"Coalesced loop"
+              , "data":
+              ["n/a", "n/a", "n/a"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":304
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Auto-coalesced"
+                }
+              ]
+              , "children":
+              [
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

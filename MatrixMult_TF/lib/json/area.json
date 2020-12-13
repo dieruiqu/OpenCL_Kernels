@@ -1,0 +1,2053 @@
+{
+  "columns":
+  ["", "ALUTs", "FFs", "RAMs", "DSPs", "Details"]
+  , "debug_enabled":"true"
+  , "type":"module"
+  , "total_percent":
+  [83.9299, 63.687, 27.5504, 45.2459, 26.9006]
+  , "total":
+  [144646, 125145, 552, 92]
+  , "name":"Kernel System"
+  , "max_resources":
+  [227120, 454240, 1220, 342]
+  , "children":
+  [
+    {
+      "name":"Board interface"
+      , "type":"resource"
+      , "data":
+      [24256, 20822, 143, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Platform interface logic."
+        }
+      ]
+    }
+    , {
+      "name":"Global interconnect"
+      , "type":"resource"
+      , "data":
+      [782, 2227, 10, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Global interconnect for 3 global loads and 2 global stores. Reduce number of global loads and stores to simplify global interconnect."
+        }
+      ]
+    }
+    , {
+      "name":"matrixMult_16_2_act"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [69.066, 52.6629, 22.4762, 32.7049, 26.9006]
+      , "total_kernel_resources":
+      [119608, 102096, 399, 91.5]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"text"
+          , "text":"Achieved kernel vectorization: 2"
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1716, 1585, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl:195 (cache)"
+          , "type":"resource"
+          , "data":
+          [0, 0, 128, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":195
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Local memory":"Good but replicated"
+              , "Requested size":"0 bytes"
+              , "Implemented size":"98304 bytes"
+              , "Number of banks":"1"
+              , "Bank width":"64 bits"
+              , "Bank depth":"2048 words"
+              , "Total replication":"6"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 0 bytes, implemented size 98304 bytes, replicated 6 times total, stall-free, 1 read and 1 write. "
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 6 times to efficiently support multiple simultaneous workgroups. This replication resulted in 9.85 times increase in actual block RAM usage. Reducing the number of barriers or increasing max_work_group_size may help reduce this replication factor."
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrix_mult.cl:202 (A_local)"
+          , "type":"resource"
+          , "data":
+          [0, 0, 26, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":202
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Local memory":"Optimal"
+              , "Requested size":"4096 bytes"
+              , "Implemented size":"12288 bytes"
+              , "Number of banks":"1"
+              , "Bank width":"1024 bits"
+              , "Bank depth":"32 words"
+              , "Total replication":"3"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 4096 bytes, implemented size 12288 bytes, replicated 3 times total, stall-free, 1 read and 1 write. "
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 3 times to efficiently support multiple simultaneous workgroups. This replication resulted in no increase in actual block RAM usage."
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrix_mult.cl:203 (B_local)"
+          , "type":"resource"
+          , "data":
+          [0, 0, 52, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":203
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Local memory":"Optimal"
+              , "Requested size":"4096 bytes"
+              , "Implemented size":"12288 bytes"
+              , "Number of banks":"2 (banked on lowest dimension)"
+              , "Bank width":"1024 bits"
+              , "Bank depth":"16 words"
+              , "Total replication":"3"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 4096 bytes, implemented size 12288 bytes, replicated 3 times total, stall-free, 2 reads and 2 writes. "
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 3 times to efficiently support multiple simultaneous workgroups. This replication resulted in no increase in actual block RAM usage."
+                }
+                , {
+                  "type":"text"
+                  , "text":"Banked on lowest dimension into 2 separate banks."
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrix_mult.cl:204 (sum_softmax)"
+          , "type":"resource"
+          , "data":
+          [0, 0, 2, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":204
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Local memory":"Good but replicated"
+              , "Requested size":"4 bytes"
+              , "Implemented size":"48 bytes"
+              , "Number of banks":"1"
+              , "Bank width":"32 bits"
+              , "Bank depth":"1 word"
+              , "Total replication":"12"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 4 bytes, implemented size 48 bytes, replicated 12 times total, stall-free, 2 reads and 1 write. "
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 6 times to efficiently support multiple simultaneous workgroups. This replication resulted in no increase in actual block RAM usage."
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 2 times to efficiently support multiple accesses. To reduce this replication factor, reduce number of read and write accesses."
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrix_mult.cl:205 (counter)"
+          , "type":"resource"
+          , "data":
+          [0, 0, 2, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                , "line":205
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Local memory":"Optimal"
+              , "Requested size":"4 bytes"
+              , "Implemented size":"24 bytes"
+              , "Number of banks":"1"
+              , "Bank width":"32 bits"
+              , "Bank depth":"1 word"
+              , "Total replication":"6"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 4 bytes, implemented size 24 bytes, replicated 6 times total, stall-free, 1 read and 0 writes. "
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 6 times to efficiently support multiple simultaneous workgroups. This replication resulted in no increase in actual block RAM usage."
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrixMult_16_2_act.B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"matrix_mult.cl:216"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":216
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:217"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":217
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [66, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:222"
+                  , "type":"resource"
+                  , "data":
+                  [99, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":222
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:226"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":226
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:234"
+                  , "type":"resource"
+                  , "data":
+                  [99, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":234
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:235"
+                  , "type":"resource"
+                  , "data":
+                  [99, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":235
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrixMult_16_2_act.B3"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [2249, 4197, 2, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [2249, 4197, 2, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [8, 80, 3, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [62, 99, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Work-group limiter exit"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [51, 99, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"matrix_mult.cl:220"
+                  , "type":"resource"
+                  , "data":
+                  [999, 718, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":220
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [999, 718, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:226"
+                  , "type":"resource"
+                  , "data":
+                  [101, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":226
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [66, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:234"
+                  , "type":"resource"
+                  , "data":
+                  [3314, 3612, 43, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":234
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3247, 3588, 43, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned cached LSU.  Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 24, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on matrix_mult.cl:202."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:235"
+                  , "type":"resource"
+                  , "data":
+                  [3348, 3636, 43, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":235
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3247, 3588, 43, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned cached LSU.  Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [68, 48, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on matrix_mult.cl:203."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:251"
+                  , "type":"resource"
+                  , "data":
+                  [82051, 63693, 0, 64]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":251
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":64
+                      , "data":
+                      [62937, 45234, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Multiply"
+                      , "type":"resource"
+                      , "count":64
+                      , "data":
+                      [17536, 15360, 0, 64]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [1578, 3099, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on matrix_mult.cl:202."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on matrix_mult.cl:203."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrixMult_16_2_act.B4"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [1219, 1749, 4, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [1219, 1749, 4, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [52, 108, 3, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [2898, 2150, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":9
+                      , "data":
+                      [4, 4, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1998, 1436, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Multiply"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [548, 480, 0, 2]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":6
+                      , "data":
+                      [90, 5, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":7
+                      , "data":
+                      [224, 224, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"matrix_mult.cl:264"
+                  , "type":"resource"
+                  , "data":
+                  [11, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":264
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:266"
+                  , "type":"resource"
+                  , "data":
+                  [44, 6, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":266
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [44, 6, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:267"
+                  , "type":"resource"
+                  , "data":
+                  [90.0667, 32, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":267
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":12
+                      , "data":
+                      [90.0667, 32, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:270"
+                  , "type":"resource"
+                  , "data":
+                  [3108.07, 4363, 43, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":270
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3018, 4331, 43, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced cached LSU.  Load with a private 32768 bit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":12
+                      , "data":
+                      [90.0667, 32, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:284 > matrix_mult.cl:119"
+                  , "type":"resource"
+                  , "data":
+                  [194, 14, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":284
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":119
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [194, 14, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:284 > matrix_mult.cl:120"
+                  , "type":"resource"
+                  , "data":
+                  [116.067, 32, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":284
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":120
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":12
+                      , "data":
+                      [116.067, 32, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:285 > matrix_mult.cl:161 > \nmatrix_mult.cl:138"
+                  , "type":"resource"
+                  , "data":
+                  [22, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":285
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":161
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":138
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:285 > matrix_mult.cl:161 > \nmatrix_mult.cl:146"
+                  , "type":"resource"
+                  , "data":
+                  [1730.67, 867.333, 0, 1]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":285
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":161
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":146
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'expf' Function Call"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1622.67, 801.333, 0, 1]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 2, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [64, 64, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:285 > matrix_mult.cl:161 > \nmatrix_mult.cl:147"
+                  , "type":"resource"
+                  , "data":
+                  [6024, 5002, 10, 7]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":285
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":161
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":147
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1998, 1436, 0, 0]
+                    }
+                    , {
+                      "name":"Floating-point Divide"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [2028, 2130, 10, 7]
+                    }
+                    , {
+                      "name":"Floating-point Subtract"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1998, 1436, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:285 > matrix_mult.cl:162"
+                  , "type":"resource"
+                  , "data":
+                  [2040.73, 1446.67, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":285
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":162
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1998, 1436, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [42.7333, 10.6667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:286 > matrix_mult.cl:146"
+                  , "type":"resource"
+                  , "data":
+                  [1622.67, 801.333, 0, 1]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":286
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":146
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'expf' Function Call"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1622.67, 801.333, 0, 1]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:286 > matrix_mult.cl:147"
+                  , "type":"resource"
+                  , "data":
+                  [29.7333, 10.6667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":286
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":147
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":6
+                      , "data":
+                      [29.7333, 10.6667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:287 > matrix_mult.cl:176"
+                  , "type":"resource"
+                  , "data":
+                  [1642, 812, 0, 1]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":287
+                      }
+                      , {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":176
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'expf' Function Call"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1622.67, 801.333, 0, 1]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [19.3333, 10.6667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:296"
+                  , "type":"resource"
+                  , "data":
+                  [131, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":296
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [65, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrixMult_16_2_act.B5"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [349, 160, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [349, 160, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [251, 122, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [81, 3, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [81, 3, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"matrix_mult.cl:299"
+                  , "type":"resource"
+                  , "data":
+                  [1059, 783, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":299
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Floating-point Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [999, 718, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [26, 41, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on matrix_mult.cl:204."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 24, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on matrix_mult.cl:204."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:300"
+                  , "type":"resource"
+                  , "data":
+                  [34, 24, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":300
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 24, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on /home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl:195."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:302"
+                  , "type":"resource"
+                  , "data":
+                  [26, 41, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":302
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [26, 41, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on matrix_mult.cl:205."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:305"
+                  , "type":"resource"
+                  , "data":
+                  [26, 41, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":305
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [26, 41, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on matrix_mult.cl:204."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrixMult_16_2_act.B6"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [352, 284, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [352, 284, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [146, 67, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [48, 32, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [48, 32, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"matrix_mult.cl:303"
+                  , "type":"resource"
+                  , "data":
+                  [44, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":303
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:304"
+                  , "type":"resource"
+                  , "data":
+                  [40.3333, 0.666667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":304
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [7.33333, 0.666667, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:305"
+                  , "type":"resource"
+                  , "data":
+                  [1489, 3314, 22, 5.5]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":305
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                    , {
+                      "name":"Floating-point Divide"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1014, 1065, 5, 3.5]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [26, 41, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on /home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl:195."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [383, 2208, 17, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced write-ack LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"matrix_mult.cl:306"
+                  , "type":"resource"
+                  , "data":
+                  [3.66667, 0.333333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":306
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3.66667, 0.333333, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"matrixMult_16_2_act.B7"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [18, 34, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Work-group limiter exit"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [17, 33, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"matrix_mult.cl:296"
+                  , "type":"resource"
+                  , "data":
+                  [354, 2172, 16, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                        , "line":296
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [354, 2172, 16, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

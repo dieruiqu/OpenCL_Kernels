@@ -1,0 +1,1728 @@
+{
+  "nodes":
+  [
+    {
+      "type":"kernel"
+      , "id":2
+      , "name":"MatrixMult"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":3
+          , "name":"MatrixMult.B0"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":9
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":121
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Semi-streaming"
+                  , "Stall-free":"No"
+                  , "Loads from":"sum"
+                  , "Start Cycle":"4"
+                  , "Latency":"2"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":43
+              , "name":"begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":44
+              , "name":"end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"7"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"7"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":4
+          , "name":"MatrixMult.B1"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"3"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":5
+          , "name":"MatrixMult.B2"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":10
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"256 bits"
+                  , "Type":"Burst-non-aligned"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"4"
+                  , "Latency":"246"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":11
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":12
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":13
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":14
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":15
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":16
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":17
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":18
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"253"
+                  , "Latency":"142"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":19
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":135
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"256 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Stores to":"A_local"
+                  , "Start Cycle":"396"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":20
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"256 bits"
+                  , "Type":"Burst-non-aligned"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"118"
+                  , "Latency":"246"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":21
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"366"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":22
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"366"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":23
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"366"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":24
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"366"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":25
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"366"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":26
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"366"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":27
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"365"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":28
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":145
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"365"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":45
+              , "name":"loop"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"48"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":46
+              , "name":"end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"431"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"431"
+              , "II":"0"
+              , "Subloops":"Yes"
+              , "Pipelined":"No"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Entry to loop. "
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":6
+          , "name":"MatrixMult.B3"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":29
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":158
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"256 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"A_local"
+                  , "Start Cycle":"0"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":47
+              , "name":"begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":48
+              , "name":"loop end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"49"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"49"
+              , "II":"0"
+              , "Subloops":"Yes"
+              , "Pipelined":"No"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Exit which branches back to loop. "
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":7
+          , "name":"MatrixMult.B4"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":30
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":31
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":32
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":33
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":34
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":35
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":36
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":37
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"3"
+                  , "Latency":"31"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":38
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":168
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"A_local"
+                  , "Start Cycle":"37"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":49
+              , "name":"loop"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"50"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":50
+              , "name":"loop end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"67"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"67"
+              , "II":"0"
+              , "Subloops":"No"
+              , "Pipelined":"No"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Loop is not pipelined. See Loops Analysis for more information."
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":8
+          , "name":"MatrixMult.B5"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":39
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":186
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"256 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"10"
+                  , "Latency":"246"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":40
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":207
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Semi-streaming"
+                  , "Stall-free":"No"
+                  , "Loads from":"sum"
+                  , "Start Cycle":"254"
+                  , "Latency":"2"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":41
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":207
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Stores to":"sum"
+                  , "Start Cycle":"383"
+                  , "Latency":"2"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":42
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":210
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"256 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"383"
+                  , "Latency":"2"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":51
+              , "name":"begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":52
+              , "name":"end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"385"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"385"
+            }
+          ]
+        }
+        , {
+          "type":"memtype"
+          , "id":53
+          , "name":"Local Memory"
+          , "children":
+          [
+            {
+              "type":"memsys"
+              , "id":54
+              , "name":"A_local"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":98
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"1024 bytes"
+                  , "Implemented size":"63488 bytes"
+                  , "Number of banks":"1"
+                  , "Bank width":"256 bits"
+                  , "Bank depth":"32 words"
+                  , "Total replication":"62"
+                  , "Additional Information":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Replicated 31 times to efficiently support multiple simultaneous workgroups"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Replicated 2 times to efficiently support multiple accesses"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"memsys"
+              , "id":59
+              , "name":"B_local"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":99
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"1024 bytes"
+                  , "Implemented size":"31744 bytes"
+                  , "Number of banks":"4"
+                  , "Bank width":"32 bits"
+                  , "Bank depth":"64 words"
+                  , "Total replication":"31"
+                  , "Additional Information":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Replicated 31 times to efficiently support multiple simultaneous workgroups"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Running memory at 2x clock to support more concurrent ports"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"memtype"
+      , "id":1
+      , "name":"Global Memory"
+      , "children":
+      [
+        {
+          "type":"memsys"
+          , "id":96
+          , "name":"DDR"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Number of banks":"1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":54
+      , "to":29
+    }
+    , {
+      "from":54
+      , "to":38
+    }
+    , {
+      "from":19
+      , "to":54
+    }
+    , {
+      "from":21
+      , "to":59
+    }
+    , {
+      "from":59
+      , "to":30
+    }
+    , {
+      "from":59
+      , "to":34
+    }
+    , {
+      "from":25
+      , "to":59
+    }
+    , {
+      "from":22
+      , "to":59
+    }
+    , {
+      "from":26
+      , "to":59
+    }
+    , {
+      "from":59
+      , "to":31
+    }
+    , {
+      "from":59
+      , "to":35
+    }
+    , {
+      "from":23
+      , "to":59
+    }
+    , {
+      "from":27
+      , "to":59
+    }
+    , {
+      "from":59
+      , "to":32
+    }
+    , {
+      "from":59
+      , "to":36
+    }
+    , {
+      "from":24
+      , "to":59
+    }
+    , {
+      "from":59
+      , "to":33
+    }
+    , {
+      "from":59
+      , "to":37
+    }
+    , {
+      "from":28
+      , "to":59
+    }
+    , {
+      "from":9
+      , "to":44
+    }
+    , {
+      "from":44
+      , "to":4
+    }
+    , {
+      "from":48
+      , "to":45
+    }
+    , {
+      "from":4
+      , "to":45
+    }
+    , {
+      "from":10
+      , "to":46
+    }
+    , {
+      "from":11
+      , "to":46
+    }
+    , {
+      "from":12
+      , "to":46
+    }
+    , {
+      "from":13
+      , "to":46
+    }
+    , {
+      "from":14
+      , "to":46
+    }
+    , {
+      "from":15
+      , "to":46
+    }
+    , {
+      "from":16
+      , "to":46
+    }
+    , {
+      "from":17
+      , "to":46
+    }
+    , {
+      "from":18
+      , "to":46
+    }
+    , {
+      "from":19
+      , "to":46
+    }
+    , {
+      "from":20
+      , "to":46
+    }
+    , {
+      "from":21
+      , "to":46
+    }
+    , {
+      "from":22
+      , "to":46
+    }
+    , {
+      "from":23
+      , "to":46
+    }
+    , {
+      "from":24
+      , "to":46
+    }
+    , {
+      "from":25
+      , "to":46
+    }
+    , {
+      "from":26
+      , "to":46
+    }
+    , {
+      "from":27
+      , "to":46
+    }
+    , {
+      "from":28
+      , "to":46
+    }
+    , {
+      "from":50
+      , "to":47
+    }
+    , {
+      "from":29
+      , "to":48
+    }
+    , {
+      "from":50
+      , "to":49
+    }
+    , {
+      "from":46
+      , "to":49
+    }
+    , {
+      "from":30
+      , "to":50
+    }
+    , {
+      "from":31
+      , "to":50
+    }
+    , {
+      "from":32
+      , "to":50
+    }
+    , {
+      "from":33
+      , "to":50
+    }
+    , {
+      "from":34
+      , "to":50
+    }
+    , {
+      "from":35
+      , "to":50
+    }
+    , {
+      "from":36
+      , "to":50
+    }
+    , {
+      "from":37
+      , "to":50
+    }
+    , {
+      "from":38
+      , "to":50
+    }
+    , {
+      "from":48
+      , "to":51
+    }
+    , {
+      "from":44
+      , "to":51
+    }
+    , {
+      "from":39
+      , "to":52
+    }
+    , {
+      "from":40
+      , "to":52
+    }
+    , {
+      "from":41
+      , "to":52
+    }
+    , {
+      "from":42
+      , "to":52
+    }
+    , {
+      "from":43
+      , "to":9
+    }
+    , {
+      "from":45
+      , "to":10
+    }
+    , {
+      "from":10
+      , "to":11
+    }
+    , {
+      "from":10
+      , "to":12
+    }
+    , {
+      "from":10
+      , "to":13
+    }
+    , {
+      "from":10
+      , "to":14
+    }
+    , {
+      "from":10
+      , "to":15
+    }
+    , {
+      "from":10
+      , "to":16
+    }
+    , {
+      "from":10
+      , "to":17
+    }
+    , {
+      "from":10
+      , "to":18
+    }
+    , {
+      "from":11
+      , "to":19
+    }
+    , {
+      "from":12
+      , "to":19
+    }
+    , {
+      "from":13
+      , "to":19
+    }
+    , {
+      "from":14
+      , "to":19
+    }
+    , {
+      "from":15
+      , "to":19
+    }
+    , {
+      "from":16
+      , "to":19
+    }
+    , {
+      "from":17
+      , "to":19
+    }
+    , {
+      "from":18
+      , "to":19
+    }
+    , {
+      "from":45
+      , "to":20
+    }
+    , {
+      "from":20
+      , "to":21
+    }
+    , {
+      "from":20
+      , "to":22
+    }
+    , {
+      "from":20
+      , "to":23
+    }
+    , {
+      "from":20
+      , "to":24
+    }
+    , {
+      "from":20
+      , "to":25
+    }
+    , {
+      "from":20
+      , "to":26
+    }
+    , {
+      "from":20
+      , "to":27
+    }
+    , {
+      "from":20
+      , "to":28
+    }
+    , {
+      "from":47
+      , "to":29
+    }
+    , {
+      "from":49
+      , "to":30
+    }
+    , {
+      "from":49
+      , "to":31
+    }
+    , {
+      "from":49
+      , "to":32
+    }
+    , {
+      "from":49
+      , "to":33
+    }
+    , {
+      "from":49
+      , "to":34
+    }
+    , {
+      "from":49
+      , "to":35
+    }
+    , {
+      "from":49
+      , "to":36
+    }
+    , {
+      "from":49
+      , "to":37
+    }
+    , {
+      "from":30
+      , "to":38
+    }
+    , {
+      "from":31
+      , "to":38
+    }
+    , {
+      "from":32
+      , "to":38
+    }
+    , {
+      "from":33
+      , "to":38
+    }
+    , {
+      "from":34
+      , "to":38
+    }
+    , {
+      "from":35
+      , "to":38
+    }
+    , {
+      "from":36
+      , "to":38
+    }
+    , {
+      "from":37
+      , "to":38
+    }
+    , {
+      "from":51
+      , "to":39
+    }
+    , {
+      "from":51
+      , "to":40
+    }
+    , {
+      "from":39
+      , "to":41
+    }
+    , {
+      "from":40
+      , "to":41
+    }
+    , {
+      "from":39
+      , "to":42
+    }
+    , {
+      "from":40
+      , "to":42
+    }
+    , {
+      "from":96
+      , "to":18
+    }
+    , {
+      "from":96
+      , "to":14
+    }
+    , {
+      "from":96
+      , "to":11
+    }
+    , {
+      "from":96
+      , "to":15
+    }
+    , {
+      "from":41
+      , "to":96
+    }
+    , {
+      "from":96
+      , "to":13
+    }
+    , {
+      "from":96
+      , "to":16
+    }
+    , {
+      "from":42
+      , "to":96
+    }
+    , {
+      "from":96
+      , "to":40
+    }
+    , {
+      "from":96
+      , "to":10
+    }
+    , {
+      "from":96
+      , "to":12
+    }
+    , {
+      "from":96
+      , "to":20
+    }
+    , {
+      "from":96
+      , "to":17
+    }
+    , {
+      "from":96
+      , "to":39
+    }
+    , {
+      "from":96
+      , "to":9
+    }
+  ]
+}

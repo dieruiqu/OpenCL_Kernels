@@ -1,0 +1,109 @@
+{
+  "columns":
+  ["", "Pipelined", "II", "Bottleneck", "Details"]
+  , "children":
+  [
+    {
+      "name":"Kernel: MatrixMult"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+            , "line":95
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"ND-Range"
+        }
+        , {
+          "type":"text"
+          , "text":"ND-Range"
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"MatrixMult.B2"
+          , "data":
+          ["No", "n/a", "n/a"]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                , "line":126
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                , "line":126
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                , "line":180
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"brief"
+              , "text":"Thread capacity = 576"
+            }
+            , {
+              "type":"text"
+              , "text":"Thread capacity = 576"
+            }
+          ]
+          , "children":
+          [
+            {
+              "name":"MatrixMult.B4"
+              , "data":
+              ["No", "n/a", "n/a"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":165
+                  }
+                ]
+                , [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/FPGA_SGEMM/Kernels/SGEMM/SGEMM/device/SGEMM_Kernel_3.cl"
+                    , "line":165
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Thread capacity = 96"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Thread capacity = 96"
+                }
+              ]
+              , "children":
+              [
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

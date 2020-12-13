@@ -1,0 +1,1120 @@
+{
+  "nodes":
+  [
+    {
+      "type":"kernel"
+      , "id":2
+      , "name":"matrixMult_16_2_act"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":3
+          , "name":"matrixMult_16_2_act.B0"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"7"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":4
+          , "name":"matrixMult_16_2_act.B1"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"0"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":5
+          , "name":"matrixMult_16_2_act.B2"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"0"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":6
+          , "name":"matrixMult_16_2_act.B3"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":11
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":235
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Burst-non-aligned"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"3"
+                  , "Latency":"120"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":12
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":234
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Burst-non-aligned"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"3"
+                  , "Latency":"120"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":13
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":235
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"124"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":14
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":235
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Stores to":"B_local"
+                  , "Start Cycle":"124"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":15
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":234
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Stores to":"A_local"
+                  , "Start Cycle":"124"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":16
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":251
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"1024 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"A_local"
+                  , "Start Cycle":"639"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":17
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":251
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"1024 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"639"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":18
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":251
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"1024 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"B_local"
+                  , "Start Cycle":"639"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":28
+              , "name":"loop"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"29"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":29
+              , "name":"loop end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"1257"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"1257"
+              , "II":"0"
+              , "Subloops":"No"
+              , "Pipelined":"No"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Loop is not pipelined. See Loops Analysis for more information."
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":7
+          , "name":"matrixMult_16_2_act.B4"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":19
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":270
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"6"
+                  , "Latency":"120"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":30
+              , "name":"begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":31
+              , "name":"end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"238"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"238"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":8
+          , "name":"matrixMult_16_2_act.B5"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":20
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":299
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"sum_softmax"
+                  , "Start Cycle":"0"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":21
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":299
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Stores to":"sum_softmax"
+                  , "Start Cycle":"18"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":22
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":300
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Stores to":"cache"
+                  , "Start Cycle":"21"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":23
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":302
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"counter"
+                  , "Start Cycle":"536"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":24
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":305
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"sum_softmax"
+                  , "Start Cycle":"541"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":32
+              , "name":"begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":33
+              , "name":"end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"548"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"548"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":9
+          , "name":"matrixMult_16_2_act.B6"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":25
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":305
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"cache"
+                  , "Start Cycle":"6"
+                  , "Latency":"3"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":26
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":305
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"25"
+                  , "Latency":"27"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":34
+              , "name":"loop"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"35"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":35
+              , "name":"loop end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"52"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"52"
+              , "II":"0"
+              , "Subloops":"No"
+              , "Pipelined":"No"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Loop is not pipelined. See Loops Analysis for more information."
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":10
+          , "name":"matrixMult_16_2_act.B7"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":27
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":296
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Burst-coalesced"
+                  , "Stall-free":"No"
+                  , "Stores to":"C"
+                  , "Start Cycle":"2"
+                  , "Latency":"2"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":36
+              , "name":"begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":37
+              , "name":"end"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"4"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"4"
+            }
+          ]
+        }
+        , {
+          "type":"memtype"
+          , "id":38
+          , "name":"Local Memory"
+          , "children":
+          [
+            {
+              "type":"memsys"
+              , "id":39
+              , "name":"cache"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":195
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"0 bytes"
+                  , "Implemented size":"98304 bytes"
+                  , "Number of banks":"1"
+                  , "Bank width":"64 bits"
+                  , "Bank depth":"2048 words"
+                  , "Total replication":"6"
+                  , "Additional Information":"Replicated 6 times to efficiently support multiple simultaneous workgroups"
+                }
+              ]
+            }
+            , {
+              "type":"memsys"
+              , "id":43
+              , "name":"A_local"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":202
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"4096 bytes"
+                  , "Implemented size":"12288 bytes"
+                  , "Number of banks":"1"
+                  , "Bank width":"1024 bits"
+                  , "Bank depth":"32 words"
+                  , "Total replication":"3"
+                  , "Additional Information":"Replicated 3 times to efficiently support multiple simultaneous workgroups"
+                }
+              ]
+            }
+            , {
+              "type":"memsys"
+              , "id":47
+              , "name":"B_local"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":203
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"4096 bytes"
+                  , "Implemented size":"12288 bytes"
+                  , "Number of banks":"2"
+                  , "Bank width":"1024 bits"
+                  , "Bank depth":"16 words"
+                  , "Total replication":"3"
+                  , "Additional Information":"Replicated 3 times to efficiently support multiple simultaneous workgroups"
+                }
+              ]
+            }
+            , {
+              "type":"memsys"
+              , "id":54
+              , "name":"sum_softmax"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":204
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"4 bytes"
+                  , "Implemented size":"48 bytes"
+                  , "Number of banks":"1"
+                  , "Bank width":"32 bits"
+                  , "Bank depth":"1 word"
+                  , "Total replication":"12"
+                  , "Additional Information":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Replicated 6 times to efficiently support multiple simultaneous workgroups"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Replicated 2 times to efficiently support multiple accesses"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"memsys"
+              , "id":59
+              , "name":"counter"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+                    , "line":205
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"4 bytes"
+                  , "Implemented size":"24 bytes"
+                  , "Number of banks":"1"
+                  , "Bank width":"32 bits"
+                  , "Bank depth":"1 word"
+                  , "Total replication":"6"
+                  , "Additional Information":"Replicated 6 times to efficiently support multiple simultaneous workgroups"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"memtype"
+      , "id":1
+      , "name":"Global Memory"
+      , "children":
+      [
+        {
+          "type":"memsys"
+          , "id":62
+          , "name":"DDR"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Number of banks":"1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":39
+      , "to":25
+    }
+    , {
+      "from":22
+      , "to":39
+    }
+    , {
+      "from":43
+      , "to":16
+    }
+    , {
+      "from":15
+      , "to":43
+    }
+    , {
+      "from":47
+      , "to":17
+    }
+    , {
+      "from":47
+      , "to":18
+    }
+    , {
+      "from":13
+      , "to":47
+    }
+    , {
+      "from":14
+      , "to":47
+    }
+    , {
+      "from":54
+      , "to":20
+    }
+    , {
+      "from":54
+      , "to":24
+    }
+    , {
+      "from":21
+      , "to":54
+    }
+    , {
+      "from":59
+      , "to":23
+    }
+    , {
+      "from":3
+      , "to":4
+    }
+    , {
+      "from":3
+      , "to":5
+    }
+    , {
+      "from":29
+      , "to":28
+    }
+    , {
+      "from":5
+      , "to":28
+    }
+    , {
+      "from":16
+      , "to":29
+    }
+    , {
+      "from":17
+      , "to":29
+    }
+    , {
+      "from":18
+      , "to":29
+    }
+    , {
+      "from":11
+      , "to":29
+    }
+    , {
+      "from":12
+      , "to":29
+    }
+    , {
+      "from":13
+      , "to":29
+    }
+    , {
+      "from":14
+      , "to":29
+    }
+    , {
+      "from":15
+      , "to":29
+    }
+    , {
+      "from":29
+      , "to":30
+    }
+    , {
+      "from":4
+      , "to":30
+    }
+    , {
+      "from":19
+      , "to":31
+    }
+    , {
+      "from":31
+      , "to":32
+    }
+    , {
+      "from":21
+      , "to":33
+    }
+    , {
+      "from":22
+      , "to":33
+    }
+    , {
+      "from":24
+      , "to":33
+    }
+    , {
+      "from":35
+      , "to":34
+    }
+    , {
+      "from":33
+      , "to":34
+    }
+    , {
+      "from":25
+      , "to":35
+    }
+    , {
+      "from":26
+      , "to":35
+    }
+    , {
+      "from":35
+      , "to":36
+    }
+    , {
+      "from":31
+      , "to":36
+    }
+    , {
+      "from":27
+      , "to":37
+    }
+    , {
+      "from":28
+      , "to":11
+    }
+    , {
+      "from":28
+      , "to":12
+    }
+    , {
+      "from":11
+      , "to":13
+    }
+    , {
+      "from":11
+      , "to":14
+    }
+    , {
+      "from":12
+      , "to":15
+    }
+    , {
+      "from":28
+      , "to":16
+    }
+    , {
+      "from":28
+      , "to":17
+    }
+    , {
+      "from":28
+      , "to":18
+    }
+    , {
+      "from":30
+      , "to":19
+    }
+    , {
+      "from":32
+      , "to":20
+    }
+    , {
+      "from":20
+      , "to":21
+    }
+    , {
+      "from":32
+      , "to":22
+    }
+    , {
+      "from":21
+      , "to":23
+    }
+    , {
+      "from":23
+      , "to":24
+    }
+    , {
+      "from":34
+      , "to":25
+    }
+    , {
+      "from":25
+      , "to":26
+    }
+    , {
+      "from":36
+      , "to":27
+    }
+    , {
+      "from":62
+      , "to":11
+    }
+    , {
+      "from":26
+      , "to":62
+    }
+    , {
+      "from":27
+      , "to":62
+    }
+    , {
+      "from":62
+      , "to":19
+    }
+    , {
+      "from":62
+      , "to":12
+    }
+  ]
+}

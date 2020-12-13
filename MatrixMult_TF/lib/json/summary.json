@@ -1,0 +1,166 @@
+{
+  "performanceSummary":
+  {
+    "name":"Kernel Summary"
+    , "columns":
+    ["Kernel Name", "Kernel Type", "Autorun", "Workgroup Size", "# Compute Units"]
+    , "children":
+    [
+      {
+        "name":"matrixMult_16_2_act"
+        , "data":
+        [
+          "NDRange"
+          , "No"
+          , [32, 32, 1]
+          , 1
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: NDRange"
+          }
+          , {
+            "type":"text"
+            , "text":"Vectorization: The kernel was vectorized for 2 SIMD work-items along the lowest dimension."
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (32, 32, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1024"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+              , "line":200
+            }
+          ]
+        ]
+      }
+    ]
+  }
+  , "estimatedResources":
+  {
+    "name":"Estimated Resource Usage"
+    , "columns":
+    ["Kernel Name", "ALUTs ", "FFs  ", "RAMs ", "DSPs "]
+    , "children":
+    [
+      {
+        "name":"matrixMult_16_2_act"
+        , "data":
+        [119608, 102096, 399, 91.5]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+              , "line":200
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Global Interconnect"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [782, 2227, 10, 0]
+      }
+      , {
+        "name":"Board Interface"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [24256, 20822, 143, 0]
+      }
+      , {
+        "name":"Total"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [144646, 125145, 552, 91]
+        , "data_percent":
+        [63.687, 27.5504, 45.2459, 26.9006]
+      }
+      , {
+        "name":"Available"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [227120, 454240, 1220, 342]
+      }
+    ]
+  }
+  , "compileWarnings":
+  {
+    "name":"Compile Warnings"
+    , "children":
+    [
+      {
+        "name":"Load uses a Burst-coalesced non-aligned cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+              , "line":235
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced non-aligned cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 64 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+              , "line":234
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced cached LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 32768 bit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tf-diego/Escritorio/Kernels/MatrixMult/matrix_mult/device/matrix_mult.cl"
+              , "line":270
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}

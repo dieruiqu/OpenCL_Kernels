@@ -1,0 +1,109 @@
+{
+  "columns":
+  ["", "Pipelined", "II", "Bottleneck", "Details"]
+  , "children":
+  [
+    {
+      "name":"Kernel: matrixMult_32_2"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/tf-diego/Escritorio/TFG/Matrix_OpenCL/matrix_mult_32_8/matrix_mult/device/matrix_mult.cl"
+            , "line":109
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"ND-Range"
+        }
+        , {
+          "type":"text"
+          , "text":"ND-Range"
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"matrixMult_32_2.B1"
+          , "data":
+          ["No", "n/a", "n/a"]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tf-diego/Escritorio/TFG/Matrix_OpenCL/matrix_mult_32_8/matrix_mult/device/matrix_mult.cl"
+                , "line":131
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/TFG/Matrix_OpenCL/matrix_mult_32_8/matrix_mult/device/matrix_mult.cl"
+                , "line":131
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/TFG/Matrix_OpenCL/matrix_mult_32_8/matrix_mult/device/matrix_mult.cl"
+                , "line":153
+              }
+            ]
+            , [
+              {
+                "filename":"/home/tf-diego/Escritorio/TFG/Matrix_OpenCL/matrix_mult_32_8/matrix_mult/device/matrix_mult.cl"
+                , "line":161
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"brief"
+              , "text":"Thread capacity = 2048"
+            }
+            , {
+              "type":"text"
+              , "text":"Thread capacity = 2048"
+            }
+          ]
+          , "children":
+          [
+            {
+              "name":"Fully unrolled loop"
+              , "data":
+              ["n/a", "n/a", "n/a"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/tf-diego/Escritorio/TFG/Matrix_OpenCL/matrix_mult_32_8/matrix_mult/device/matrix_mult.cl"
+                    , "line":153
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+              ]
+              , "children":
+              [
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
